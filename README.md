@@ -1,15 +1,43 @@
-# Elysia with Bun runtime
+# Elysia + Pglite + Drizzle
+Tutorial: https://qiita.com/t_o_d/items/58c27ffa826296c26da5
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
+start server:
+```sh
+bun dev
 ```
 
-## Development
-To start the development server run:
-```bash
-bun run dev
+to test out api server:
+```sh
+curl localhost:3000/books/1
+# sample response
+# [{"id":1,"title":"sample1","author":"t_o_d","createdAt":"2024-11-13T05:33:50.313Z"}]
 ```
 
-Open http://localhost:3000/ with your browser to see the result.
+generate migration files:
+```sh
+bun db:generate
+```
+
+see migration files:
+```sh
+ls drizzle # goes drizzle directory
+```
+
+apply migrations to db:
+```sh
+bun db:push
+```
+
+run local drizzle studio:
+```sh
+bun db:studio
+```
+then head over to https://local.drizzle.studio/
+
+run seed script:
+```sh
+bun db:seed
+```
+
+self generated docs via swagger:
+run `bun dev` and head over to `http://localhost:3000/docs`
